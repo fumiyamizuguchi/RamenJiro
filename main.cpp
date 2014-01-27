@@ -249,7 +249,6 @@ void getNextGeneration(int (*genes)[SIZE]) {
             }
         }
         //子供の残りの遺伝子を埋めていく
-        
         for (j = 0; j < SIZE; j++) {
             if (j >= cross_points[0] && j < cross_points[1]) {
                 continue;
@@ -297,10 +296,13 @@ void getNextGeneration(int (*genes)[SIZE]) {
     //子供のいずれかに突然変異を起こさせる
     int n;
     flag = 1;
+    //どの子供を突然変異させるか決める
     n = rand() % NUM_OF_GENES/2 + (NUM_OF_GENES/2);
     while (flag) {
+        //どこの遺伝子を変異させるか決める
         a = rand() % SIZE;
         b = rand() % SIZE;
+        //入れ替える
         if (a == b) {
             continue;
         } else {
